@@ -1,3 +1,3 @@
 # OOPSProject
 - OOPS Project for 3rd Sem
-- A simple BMI Calculator.
+- A simple bank management system that monitors accounts, withdrawals, deposits etc. 
