@@ -76,7 +76,7 @@ public class bank{
             System.out.println("\t5. Checking Account.");
             System.out.println("\t6. Checking Master[All Accounts].");
             System.out.println("\t7. Exit.");
-            c=in.nextInt();
+            System.out.print("\tEnter your choice : ");c=in.nextInt();
             switch(c){
                 case 1 :
                     createAccount(arr);
