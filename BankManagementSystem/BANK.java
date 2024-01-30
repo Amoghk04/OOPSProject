@@ -69,19 +69,22 @@ public class bank{
         do{
             System.out.println("\t\tWelcome to CitiBank!\t\t");
             System.out.println("\t\t--Options Menu--\t\t");
-            System.out.println("\t1. Create an account.");
-            System.out.println("\t2. Deposit into account.");
-            System.out.println("\t3. Withdraw from account.");
-            System.out.println("\t4. Estimate your Fixed Deposit's growth.");
-            System.out.println("\t5. Checking Account.");
-            System.out.println("\t6. Checking Master[All Accounts].");
-            System.out.println("\t7. Exit.");
-            System.out.print("\tEnter your choice : ");c=in.nextInt();
+            System.out.println("   1. Create an account.");
+            System.out.println("   2. Deposit into account.");
+            System.out.println("   3. Withdraw from account.");
+            System.out.println("   4. Estimate your Fixed Deposit's growth.");
+            System.out.println("   5. Checking Account.");
+            System.out.println("   6. Checking Master[All Accounts].");
+            System.out.println("   7. Exit.");
+            System.out.print("   Enter your choice : ");c=in.nextInt();
+            System.out.println("----------------------------------------------------------");
             switch(c){
                 case 1 :
                     createAccount(arr);
+                    System.out.println("----------------------------------------------------------");
                     break;
                 case 2 :
+                    System.out.println("\t   Deposit Transaction Was Requested");
                     System.out.print("Enter your Account Number :");
                     no=in.nextInt();
                     System.out.print("Enter Password : ");
@@ -89,9 +92,11 @@ public class bank{
                     if(no<accno && p.equals(arr[no].getPassword()))
                         depositAmount(arr,no); /*Polymorphism */
                     else    
-                        System.out.println("Wrong credentials.");
+                        System.out.println("\t   Request Denied\n\t   Incorrect credentials.");
+                    System.out.println("----------------------------------------------------------");
                     break;
                 case 3 :
+                    System.out.println("\t   Withdrawl Transaction Was Requested");
                     System.out.print("Enter your Account Number :");
                     no=in.nextInt();
                     System.out.print("Enter Password : ");
@@ -99,7 +104,8 @@ public class bank{
                     if(no<accno && p.equals(arr[no].getPassword()))
                         withdrawAmount(arr,no); /*Polymorphism */
                     else    
-                        System.out.println("Wrong credentials.");
+                        System.out.println("\t\tRequest Denied\n\t\tIncorrect credentials.");
+                    System.out.println("----------------------------------------------------------");
                     break;
                 case 4 :
                     System.out.print("Enter your Account Number :");
@@ -110,15 +116,20 @@ public class bank{
                         FlexiFixedDeposit(arr,no);
                     else    
                         System.out.println("Wrong credentials.");
+                    System.out.println("----------------------------------------------------------");
                     break;
                 case 5:
                     System.out.print("Enter your Account Number :");
                     no=in.nextInt();
                     checkAcccount(arr,no);
+                    System.out.println("----------------------------------------------------------");
                     break;
                 case 6:
                     checkMaster(arr);
+                    System.out.println("----------------------------------------------------------");
                     break;
+                default:
+                    System.out.println("\t\tThank you for chosing us!");
             }
         }while(c<7);
     }
@@ -134,12 +145,13 @@ public class bank{
         r=in.nextDouble();
         System.out.print("Set Password : ");
         p=in.next();
+        System.out.println("Your account was successfully created! Welcome to Citibank.");
         arr[accno] = new FixedDeposit(n,p,accno,m,r);
         accno++;
     }
     private static void depositAmount(FixedDeposit arr[], int no)throws IOException{
         double amt;
-        System.out.println("Welcome "+arr[no].getName());
+        System.out.println("Welcome "+arr[no].getName()+"!");
         System.out.print("Enter the Amount you wish to Deposit : $");
         amt=in.nextDouble();
         for(FixedDeposit fd : arr){
@@ -152,7 +164,7 @@ public class bank{
     }
     private static void withdrawAmount(FixedDeposit arr[], int no)throws IOException{
         double amt;
-        System.out.println("Welcome "+arr[no].getName());
+        System.out.println("Welcome "+arr[no].getName()+"!");
         System.out.print("Enter the Amount you wish to Withdraw : $");
         amt=in.nextDouble();
         for(FixedDeposit fd : arr){
