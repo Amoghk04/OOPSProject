@@ -51,8 +51,7 @@ class FixedDeposit extends Account{ /*Use of Inheritance */
     }
     public void FlexiFixedDeposit(){
         double Increment = (Balance * Interest)/12.0;
-        depositAmount(Increment);
-        System.out.println("The Fixed Deposit plan will increment your account by $"+Increment+" in a year's time.\nPost-inrement balance : $"+getBalance());
+        System.out.println("The Fixed Deposit plan will increment your account by $"+Increment+" in a year's time.\nPost-increment balance would tally out to : $"+(getBalance()+Increment));
     }
     @Override
     public String toString(){
