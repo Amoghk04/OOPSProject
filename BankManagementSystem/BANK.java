@@ -41,7 +41,7 @@ class Account{ /*Use of private access modifiers to implement Encapsulation [pro
     }
 }
 class FixedDeposit extends Account{ /*Use of Inheritance */
-    private double Interest;
+    private double Interest;Scanner in = new Scanner(System.in);
     public FixedDeposit(String Name, String Password, int AccNo, double Balance,double Interest){
         super(Name,Password,AccNo,Balance);
         this.Interest=Interest;
@@ -50,8 +50,9 @@ class FixedDeposit extends Account{ /*Use of Inheritance */
         return Interest;
     }
     public void FlexiFixedDeposit(){
-        double Increment = (Balance * Interest)/12.0;
-        System.out.println("The Fixed Deposit plan will increment your account by $"+Increment+" in a year's time.\nPost-increment balance would tally out to : $"+(getBalance()+Increment));
+        System.out.print("Enter the number or years you'd wish to invest for : ");int years=in.nextInt();
+        double Increment = (Balance * Interest*years)/12.0;
+        System.out.println("The Fixed Deposit plan will increment your account by $"+Math.ceil(Increment)+" in "+years+" year's time.\nPost-increment balance would tally out to : $"+Math.ceil(getBalance()+Increment));
     }
     @Override
     public String toString(){
