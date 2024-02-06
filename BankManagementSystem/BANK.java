@@ -37,7 +37,7 @@ class Account{ /*Use of private access modifiers to implement Encapsulation [pro
     }
     @Override
     public String toString(){
-        return "Account Number : "+AccNo+"\nAccount Holder : "+Name+"\nBalance : $"+Balance+"\nPassword : "+Password;
+        return "Account Number\t:\t"+AccNo+"\nAccount Holder\t:\t"+Name+"\nBalance\t:\t$"+Balance+"\nPassword\t:\t"+Password;
     }
 }
 class FixedDeposit extends Account{ /*Use of Inheritance */
@@ -56,7 +56,7 @@ class FixedDeposit extends Account{ /*Use of Inheritance */
     }
     @Override
     public String toString(){
-        return super.toString()+"\nFixed Deposit's Interest Rate : "+Interest+"%.";
+        return super.toString()+"\nFixed Deposit's Interest Rate\t:\t"+Interest+"%.";
     }
 }
 public class bank{
@@ -67,8 +67,8 @@ public class bank{
         int c=0;String p;
         int no=0;
         do{
-            System.out.println("\t\tWelcome to CitiBank!\t\t");
-            System.out.println("\t\t--Options Menu--\t\t");
+            System.out.println("\t      Welcome to RIT-MiniBank!\t\t");
+            System.out.println("\t\t  --Options Menu--\t\t");
             System.out.println("   1. Create an account.");
             System.out.println("   2. Deposit into account.");
             System.out.println("   3. Withdraw from account.");
@@ -129,7 +129,7 @@ public class bank{
                     System.out.println("----------------------------------------------------------");
                     break;
                 default:
-                    System.out.println("\t\tThank you for chosing us!");
+                    System.out.println("\t     Thank you for chosing us!");
             }
         }while(c<7);
     }
