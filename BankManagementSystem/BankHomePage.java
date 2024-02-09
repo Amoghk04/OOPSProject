@@ -2,6 +2,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
 public class BankHomePage extends Frame implements ActionListener {
     Button runProgramBtn;
     Label statusLabel;
@@ -9,15 +15,26 @@ public class BankHomePage extends Frame implements ActionListener {
     public BankHomePage() {
         setLayout(new FlowLayout());
 
-        runProgramBtn = new Button("Run Program");
-        add(runProgramBtn);
+        JPanel logoPanel = new JPanel();
+        ImageIcon logoIcon = new ImageIcon("C:\\Users\\Amit\\OneDrive\\Desktop\\OOPS\\Ramaiah.png"); // Change "logo.png" to the path of your logo file
+        JLabel logoLabel = new JLabel(logoIcon);
+        logoPanel.add(logoLabel);
+        add(logoPanel, BorderLayout.NORTH);
+
+        JLabel titleLabel = new JLabel("Welcome to RIT-MiniBank");
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        add(titleLabel, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel();
+        JButton runProgramBtn = new JButton("Launch RIT-MiniBank");
+        buttonPanel.add(runProgramBtn);
+        add(buttonPanel, BorderLayout.SOUTH);
         runProgramBtn.addActionListener(this);
 
-        statusLabel = new Label("Click 'Run Program' to execute your Java program in VS Code terminal.");
-        add(statusLabel);
-
-        setTitle("Java Program Runner");
-        setSize(400, 150);
+        setTitle("Rit-MiniBank");
+        setSize(400, 400);
+        setLocationRelativeTo(null);
         setVisible(true);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {
@@ -28,9 +45,6 @@ public class BankHomePage extends Frame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == runProgramBtn) {
-            /*executeCommand("cd C:\\Users\\gamin\\IdeaProjects\\Java Programs\\src");
-            executeCommand("javac bank.java");
-            executeCommand("java bank");*/
             try {
                 bank.main(new String[]{});
             } catch (IOException ex) {
@@ -38,21 +52,6 @@ public class BankHomePage extends Frame implements ActionListener {
             }
         }
     }
-
-//    private void executeCommand(String command) {
-//        try {
-//            Process process = Runtime.getRuntime().exec(command);
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                System.out.println(line); // Output the command execution result to console
-//            }
-//            process.waitFor(); // Wait for the process to finish
-//            reader.close();
-//        } catch (IOException | InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public static void main(String[] args) {
         new BankHomePage();
