@@ -16,7 +16,7 @@ public class BankHomePage extends Frame implements ActionListener {
         setLayout(new FlowLayout());
 
         JPanel logoPanel = new JPanel();
-        ImageIcon logoIcon = new ImageIcon("C:\\Users\\Amit\\OneDrive\\Desktop\\OOPS\\Ramaiah.png"); // Change "logo.png" to the path of your logo file
+        ImageIcon logoIcon = new ImageIcon("C:\\Users\\Amit\\OneDrive\\Desktop\\OOPS\\Ramaiah.png"); 
         JLabel logoLabel = new JLabel(logoIcon);
         logoPanel.add(logoLabel);
         add(logoPanel, BorderLayout.NORTH);
